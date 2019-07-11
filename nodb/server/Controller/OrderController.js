@@ -5,9 +5,9 @@ let ID=0;
 const orderList = [                 //array of order objects which have properties empty to start
                     {
                     id: 0,
-                    cust: "sdf",
-                    item: "beef",
-                    weight:34,     
+                    cust: "",
+                    item: "",
+                    weight:0,     
                     iscomplete: false
                     }
                 ];

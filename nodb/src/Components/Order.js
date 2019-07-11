@@ -21,8 +21,8 @@ import axios from "axios";
             handleClick = (e) => {
                 e.preventDefault();
                 axios.post("/api/orderList/",this.state).then(res => {
-                                                                    console.log(res.data); //array of objects
-                                                                    this.props.updateOrders(res.data);
+                                                                   // console.log(res.data); //array of objects
+                                                                   // this.props.updateOrders(res.data);
                                                                      })
                               };
             clickView =  (e) => {
@@ -32,7 +32,7 @@ import axios from "axios";
 
   render(){
             return (
-                
+                <>
                 <form >
                 <input
                   name="cust"
@@ -56,6 +56,7 @@ import axios from "axios";
               <button type="submit" onClick={this.handleClick}>Submit</button>
               </form>
               <button onClick={this.clickView}>View Order List</button>
+              </>
             );
         }
 }
