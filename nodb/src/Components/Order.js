@@ -65,7 +65,7 @@ import axios from "axios";
   render(){
             return (
                 <>
-                <form class="form" >
+                <form className="form" >
                 <input
                   name="cust"
                   placeholder="Enter Name"
@@ -87,7 +87,7 @@ import axios from "axios";
 
               <button type="submit" onClick={this.handleClick}>Submit</button>
               </form>
-              <nav class="nav" >
+              <nav className="nav" >
               <button onClick={this.clickView}>View Order List</button>
               </nav>
               </>

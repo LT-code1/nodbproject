@@ -4,8 +4,7 @@ import axios from "axios";
 class OrderForm extends Component {
     constructor(props) {
     super(props);
-    this.state = {   
-        id:"",                 
+    this.state = {                    
         cust: "",
         item: "",
         weight: 0,         
@@ -19,13 +18,16 @@ class OrderForm extends Component {
 
     handleClick = (id) => {
     axios.put("/api/orderList/"+id,this.state)
-         .then(res => {this.setState({ orders: res.data })})
+         .then(res => {
+             this.props.pOrders(res.data );
+            })
          .catch(error => {
                           console.log(error);
                           this.setState({
                           error: "ERROR"
                           });
                          });
+    
     }
 
     clickView = (e) => {
@@ -37,7 +39,7 @@ class OrderForm extends Component {
     render(){
         return (
             <>
-            <form class="form" >
+            <form className="form" >
             <input
               name="cust"
               placeholder="Enter Name"
@@ -57,7 +59,9 @@ class OrderForm extends Component {
               value={this.state.weight}
             />
                        
-          <button type="submit" onClick={() => this.handleClick(this.state.id)}>Update</button>
+          <button type="submit" onClick={(e) => {
+              e.preventDefault()
+              this.handleClick(this.props.passedid)}}>Update</button>
           </form>
           </>
         );

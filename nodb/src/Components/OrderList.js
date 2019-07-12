@@ -15,6 +15,11 @@ class OrderList extends Component {
         };
     }
     //functions
+    //editReset = () => {this.setState({editting : false})};
+    editOrders = (data) => { this.setState({ orders : data })
+                             this.setState({editting : false}) };
+  
+
     componentDidMount() {
         axios
             .get("/api/orderList")
@@ -86,11 +91,11 @@ class OrderList extends Component {
                                                                weight = {order.weight}
                                                                item = {order.item}/> : null
                             } */} 
-                            {this.state.editting ? <OrderForm />:null} 
-                        </li>
+                            {this.state.editting ? <OrderForm pOrders={this.editOrders} passedid={order.id}/>:null} 
+                        </li>                    
                     ))}
                 </ul>
-                <nav class="nav" >
+                <nav className="nav" >
                 <button onClick={this.clickView}>View Order Sheet</button>
                 </nav>
             </>
