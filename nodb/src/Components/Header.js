@@ -3,13 +3,17 @@ import "../App.css";
 
 export default function Header(props) {
   return (
-    <header>
-      <h2>
+    <header class="header">
+      <h1 class="headerTitle" >
         <span role="img" aria-label="order">
-          🍱
+        🥩BBQ SHOP🥩
         </span>
-      </h2>
-      <h1>Enter Order:</h1>
+      </h1>
+      <h1 class="headerTitle" >Enter Order:</h1>
     </header>
   );
 }
+
+
+
+

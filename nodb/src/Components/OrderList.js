@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import Order from "./Order";
 import axios from "axios";
+import OrderForm from "./OrderForm";
 
 
 
@@ -9,6 +10,7 @@ class OrderList extends Component {
         super(props);
         this.state = {
             orders: [],
+            editting: false,
             error: ""
         };
     }
@@ -27,13 +29,28 @@ class OrderList extends Component {
             });
     }
 
-    updateOrders = newOrders => {           //not used currently
-        this.setState({ orders: newOrders });
-    }
+ 
     clickView = (e) => {
         e.preventDefault();
         this.props.changeView("orderView");
     }
+
+    // updateOrders = id => {
+    //   e.preventDefault();
+    //   this.props.changeView("Order List");  ///perhaps change view to orderlist and keep id?
+
+      
+    //   axios.put("/api/orderList/"+id)
+    //         .then(res =>{
+    //           this.setState({ orders: res.data})
+    //         })
+    //         .catch(error => {
+    //           console.log(error);
+    //           this.setState({
+    //               error: "ERROR"
+    //           });
+    //       });
+    // }
 
     deleteOrder = id => {
     
@@ -49,20 +66,33 @@ class OrderList extends Component {
             });
     }
 
+    toggleEditting = () => {
+      this.state.editting ? this.setState({editting: false}) : this.setState({editting: true});
+    }
+
 
     render() {
         return (
             <>
                 <ul>
                     {this.state.orders.map(order => (
-                        <>
+                       <li key={order.id}>
                             <h1>Order#{order.id} {order.cust} ordered {order.weight} lbs. of {order.item}</h1>
-
                             <button onClick={() => this.deleteOrder(order.id)}>Delete Order</button>
-                        </>
+                            <button onClick={this.toggleEditting}>Update Order</button>
+                            {/* {
+                              this.state.editting ? <OrderForm id = {order.id}        //pass props to OrderForm
+                                                               cust = {order.cust}
+                                                               weight = {order.weight}
+                                                               item = {order.item}/> : null
+                            } */} 
+                            {this.state.editting ? <OrderForm />:null} 
+                        </li>
                     ))}
                 </ul>
+                <nav class="nav" >
                 <button onClick={this.clickView}>View Order Sheet</button>
+                </nav>
             </>
         )
     }

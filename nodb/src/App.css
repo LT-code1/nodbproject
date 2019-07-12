@@ -1,0 +1,25 @@
+.header {
+    background-color: #94561c;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+  }
+  .headerTitle{
+    background-color: #94561c;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+
+  }
+
+  .form{
+    background-color: #94561c10; 
+    text-align: center;
+  }
+
+  .nav{
+    background-color: #94561c10; 
+    text-align: center;  
+  }

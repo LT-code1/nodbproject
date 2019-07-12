@@ -1,3 +1,36 @@
+// import React, { Component } from "react";
+// import OrderForm from "./"
+// import axios from "axios";
+
+
+//  class Order extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {   
+//                 id:"",                 
+//                 cust: "",
+//                 item: "",
+//                 weight: 0,         
+//                 iscomplete:false,
+//                 };
+//             }
+
+//   render(){
+//             return (
+//                     <>
+//                     <OrderForm order={this.state}/>
+//                     </>
+//             );
+//         }
+// }
+       
+// <Card arrayC={this.state.cardSet} index={this.state.counter}/>
+
+
+//  export default Order;
+
+
+
 import React, { Component } from "react";
 import axios from "axios";
 
@@ -12,10 +45,9 @@ import axios from "axios";
                 weight: 0,         
                 iscomplete:false,
                 };
-                this.handleChange = this.handleChange.bind(this);
             }
 
-            handleChange(e) {
+            handleChange = (e) => {
                             this.setState({ [e.target.name]: e.target.value });
                             }
             handleClick = (e) => {
@@ -25,7 +57,7 @@ import axios from "axios";
                                                                    // this.props.updateOrders(res.data);
                                                                      })
                               };
-            clickView =  (e) => {
+            clickView = (e) => {
                 e.preventDefault();
                 this.props.changeView("Order List");
             }
@@ -33,7 +65,7 @@ import axios from "axios";
   render(){
             return (
                 <>
-                <form >
+                <form class="form" >
                 <input
                   name="cust"
                   placeholder="Enter Name"
@@ -55,11 +87,15 @@ import axios from "axios";
 
               <button type="submit" onClick={this.handleClick}>Submit</button>
               </form>
+              <nav class="nav" >
               <button onClick={this.clickView}>View Order List</button>
+              </nav>
               </>
             );
         }
 }
           
  export default Order;
+  
+
   
