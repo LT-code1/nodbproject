@@ -65,6 +65,9 @@ import axios from "axios";
   render(){
             return (
                 <>
+                {/* <nav className="nav" >
+                <button onClick={this.clickView}>View Order List</button>
+                </nav> */}
                 <form className="form" >
                 <input
                   name="cust"

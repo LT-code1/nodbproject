@@ -1,25 +1,17 @@
 import React, { Component } from "react";
-// import Order from "./Order";
 import axios from "axios";
-import OrderForm from "./OrderForm";
 
 
-
-class OrderList extends Component {
+class Ticket extends Component {
     constructor(props) {
         super(props);
         this.state = {
             orders: [],
-            editting: false,
             error: ""
         };
     }
     //functions
-    //editReset = () => {this.setState({editting : false})};
-    editOrders = (data) => { this.setState({ orders : data })
-                             this.setState({editting : false}) };
   
-
     componentDidMount() {
         axios
             .get("/api/orderList")
@@ -34,48 +26,11 @@ class OrderList extends Component {
             });
     }
 
- 
     clickView = (e) => {
         e.preventDefault();
         this.props.changeView("orderView");
     }
-
-    // updateOrders = id => {
-    //   e.preventDefault();
-    //   this.props.changeView("Order List");  ///perhaps change view to orderlist and keep id?
-
-      
-    //   axios.put("/api/orderList/"+id)
-    //         .then(res =>{
-    //           this.setState({ orders: res.data})
-    //         })
-    //         .catch(error => {
-    //           console.log(error);
-    //           this.setState({
-    //               error: "ERROR"
-    //           });
-    //       });
-    // }
-
-    deleteOrder = id => {
     
-        axios.delete("/api/orderList/"+id)
-            .then(res => {
-                this.setState({ orders: res.data })
-            })
-            .catch(error => {
-                console.log(error);
-                this.setState({
-                    error: "ERROR"
-                });
-            });
-    }
-
-    toggleEditting = () => {
-      this.state.editting ? this.setState({editting: false}) : this.setState({editting: true});
-    }
-
-
     render() {
         return (
             <>
@@ -106,5 +61,5 @@ class OrderList extends Component {
     }
 
 }
-export default OrderList;
+export default Ticket;
 
