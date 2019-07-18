@@ -16,7 +16,7 @@ class OrderForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
         }
 
-    handleClick = (id) => {
+    handleClick = (id) => {         //updates with id of order
     axios.put("/api/orderList/"+id,this.state)
          .then(res => {
              this.props.pOrders(res.data );
